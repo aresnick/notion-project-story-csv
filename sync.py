@@ -7,6 +7,9 @@ import re
 # For interacting with the Notion API, via https://github.com/jamalex/notion-py
 from notion.client import NotionClient
 
+# For serializing table to CSV
+import csv
+
 # Parse command line arguments to extract API token and URL
 parser = argparse.ArgumentParser(
     description='Generate a CSV file from a Notion table')
@@ -29,5 +32,19 @@ except TypeError:
     exit()
 
 collection_view = client.get_collection_view(args.url)
-
-print(collection_view.collection.get_rows())
+collection_dicts = [
+    {
+        'artifact_id': row.id, 'artifact_title': row.title,
+        'activity_ids': ",".join([a.id for a in row.activity]),
+        'activity_titles': ",".join([a.title for a in row.activity]),
+        'standard_ids': ",".join([
+                ",".join([
+                    s.id for s in client.get_block(a.id).standards_engaged])
+                for a in row.activity]),
+        'standard_titles': ",".join([
+                ",".join([
+                    s.title for s in client.get_block(a.id).standards_engaged])
+                for a in row.activity])
+    }
+    for row in collection_view.collection.get_rows()
+]
