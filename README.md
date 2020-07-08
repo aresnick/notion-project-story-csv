@@ -1,7 +1,13 @@
 # README
 
-This is a small script and convenience wrapper around some of the functionality in [`notion-py`](https://github.com/jamalex/notion-py).  Its intent is to serialize Notion tables to CSV files.
+This is a small Python 3 script and convenience wrapper around some of the functionality in [`notion-py`](https://github.com/jamalex/notion-py).  Its intent is to serialize Notion tables to CSV files.
 
+## Installation
+```bash
+pip3 install -r requirements.text
+```
+
+## Usage
 Usage syntax is available _via_ `notion2csv.py -h`:
 usage: notion2csv.py [-h] TOKEN_V2 URL PATH
 
