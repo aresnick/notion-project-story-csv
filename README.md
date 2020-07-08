@@ -16,9 +16,9 @@ If you're not sure how to inspect Cookie values, you can use an extension like [
 ![Animated GIF of using EditThisCookie to get Notion API token](cookie-grab.gif?raw=true)
 
 Usage syntax is available _via_ `notion2csv.py -h`:
+```text
 usage: notion2csv.py [-h] TOKEN_V2 URL PATH
 
-```text
 Generate a CSV file from a Notion table
 
 positional arguments:
