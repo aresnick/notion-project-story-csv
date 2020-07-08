@@ -34,5 +34,4 @@ Currently, this is used as part of the PBLL project to serialize project story a
 
 ![Project story summary and schema screenshot](story-summary.png?raw=true)
 
----
 …producing CSVs like [this one](https://share.getcloudapp.com/OAuBNBG9)
