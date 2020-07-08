@@ -20,3 +20,6 @@ optional arguments:
 Currently, this is used as part of the PBLL project to serialize project story artifacts ↔ standard mappings to a CSV file suitable and reflects the structure of that as reflected in [this mock table](https://www.notion.so/powderhousepbll/7f9e7bb5fafe4df2bcd3bbcf2baf7348?v=07e6604a555543d6adffcf48257988ab), _i.e_.
 
 ![Project story summary and schema screenshot](story-summary.png?raw=true)
+
+---
+…producing CSVs like [this one](https://share.getcloudapp.com/OAuBNBG9)
