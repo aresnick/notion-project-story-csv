@@ -61,3 +61,9 @@ collection_dicts = [
     }
     for row in collection_view.collection.get_rows()
 ]
+
+csv_keys = collection_dicts[0].keys()
+with open('/Users/aresnick/Desktop/test.csv', 'w') as output_file:
+    dict_writer = csv.DictWriter(output_file, csv_keys)
+    dict_writer.writeheader()
+    dict_writer.writerows(collection_dicts)

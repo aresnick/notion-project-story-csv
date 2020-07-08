@@ -1,4 +1,8 @@
+# via https://github.com/jamalex/notion-py/pull/91
+# lightly modified to fix bug in choking on tables-of-contents
+
 import markdown2
+
 import requests
 
 from notion.block import *
@@ -19,19 +23,23 @@ class BaseRenderer(object):
 			return 1
 
 	def render_block(self, block, level=0, preblock=None, postblock=None):
-		assert isinstance(block, Block)
-		type_renderer = getattr(self, "handle_" + block._type, None)
-		if not callable(type_renderer):
-			if hasattr(self, "handle_default"):
-				type_renderer = self.handle_default
+		if hasattr(block, '_type'):
+			assert isinstance(block, Block)
+			type_renderer = getattr(self, "handle_" + block._type, None)
+			if not callable(type_renderer):
+				if hasattr(self, "handle_default"):
+					type_renderer = self.handle_default
+				else:
+					raise Exception("No handler for block type '{}'.".format(block._type))
+			pretext = type_renderer(block, level=level, preblock=preblock, postblock=postblock)
+			if isinstance(pretext, tuple):
+				pretext, posttext = pretext
 			else:
-				raise Exception("No handler for block type '{}'.".format(block._type))
-		pretext = type_renderer(block, level=level, preblock=preblock, postblock=postblock)
-		if isinstance(pretext, tuple):
-			pretext, posttext = pretext
+				posttext = ""
+			return pretext + self.render_children(block, level=level+self.calculate_child_indent(block)) + posttext
 		else:
-			posttext = ""
-		return pretext + self.render_children(block, level=level+self.calculate_child_indent(block)) + posttext
+			print(block, "has no _type; skipping rendering…")
+			return ''
 
 	def render_children(self, block, level):
 		kids = block.children
