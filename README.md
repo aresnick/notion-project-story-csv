@@ -11,7 +11,7 @@ pip3 install -r requirements.text
 
 You'll need an API token from Notion.  As of July 2020, Notion's API is not public.  You can grab a _de facto_ token from the cookies loaded in your browser in a logged-in session on `notion.so`.
 
-If you're not sure how to inspect Cookie values, you can use an extension like [EditThisCookie](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?hl=en) on Chrome as so:
+If you're not sure how to inspect cookie values, you can use an extension like [EditThisCookie](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?hl=en) on Chrome as so:
 
 ![Animated GIF of using EditThisCookie to get Notion API token](cookie-grab.gif?raw=true)
 
