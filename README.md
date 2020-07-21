@@ -4,7 +4,7 @@ This is a small Python 3 script and convenience wrapper around some of the funct
 
 ## Installation
 ```bash
-pip3 install -r requirements.text
+pip3 install -r requirements.txt
 ```
 
 ## Usage
