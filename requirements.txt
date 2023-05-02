@@ -9,7 +9,7 @@ click==7.1.2
 commonmark==0.9.1
 dictdiffer==0.8.1
 emoji==0.5.4
-Flask==1.1.2
+Flask==2.3.2
 idna==2.9
 itsdangerous==1.1.0
 Jinja2==2.11.3
