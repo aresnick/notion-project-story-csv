@@ -27,7 +27,7 @@ pyppeteer==0.2.2
 pyppeteer-stealth==1.0.0
 python-slugify==4.0.1
 pytz==2020.1
-requests==2.23.0
+requests==2.31.0
 selenium==3.141.0
 six==1.15.0
 slack-export-viewer==1.0.3
